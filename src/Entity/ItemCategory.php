@@ -26,7 +26,7 @@ class ItemCategory
     private $cat_id;
 
     /**
-     * @ORM\OneToMany(targetEntity=item::class, mappedBy="itemCategory")
+     * @ORM\OneToMany(targetEntity=Item::class, mappedBy="itemCategory")
      */
     private $itm_id;
 
@@ -53,14 +53,14 @@ class ItemCategory
     }
 
     /**
-     * @return Collection|item[]
+     * @return Collection|Item[]
      */
     public function getItmId(): Collection
     {
         return $this->itm_id;
     }
 
-    public function addItmId(item $itmId): self
+    public function addItmId(Item $itmId): self
     {
         if (!$this->itm_id->contains($itmId)) {
             $this->itm_id[] = $itmId;
@@ -70,7 +70,7 @@ class ItemCategory
         return $this;
     }
 
-    public function removeItmId(item $itmId): self
+    public function removeItmId(Item $itmId): self
     {
         if ($this->itm_id->removeElement($itmId)) {
             // set the owning side to null (unless already changed)
