@@ -20,13 +20,13 @@ class CartItems
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=cart::class, inversedBy="cartItems")
+     * @ORM\ManyToOne(targetEntity=Cart::class, inversedBy="cartItems")
      * @ORM\JoinColumn(nullable=false)
      */
     private $crt_id;
 
     /**
-     * @ORM\OneToMany(targetEntity=item::class, mappedBy="cartItems")
+     * @ORM\OneToMany(targetEntity=Item::class, mappedBy="cartItems")
      */
     private $itm_id;
 
@@ -40,12 +40,12 @@ class CartItems
         return $this->id;
     }
 
-    public function getCrtId(): ?cart
+    public function getCrtId(): ?Cart
     {
         return $this->crt_id;
     }
 
-    public function setCrtId(?cart $crt_id): self
+    public function setCrtId(?Cart $crt_id): self
     {
         $this->crt_id = $crt_id;
 
@@ -53,14 +53,14 @@ class CartItems
     }
 
     /**
-     * @return Collection|item[]
+     * @return Collection|Item[]
      */
     public function getItmId(): Collection
     {
         return $this->itm_id;
     }
 
-    public function addItmId(item $itmId): self
+    public function addItmId(Item $itmId): self
     {
         if (!$this->itm_id->contains($itmId)) {
             $this->itm_id[] = $itmId;
@@ -70,7 +70,7 @@ class CartItems
         return $this;
     }
 
-    public function removeItmId(item $itmId): self
+    public function removeItmId(Item $itmId): self
     {
         if ($this->itm_id->removeElement($itmId)) {
             // set the owning side to null (unless already changed)

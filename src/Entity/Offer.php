@@ -33,13 +33,13 @@ class Offer
     private $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity=pet::class, inversedBy="offers")
+     * @ORM\ManyToOne(targetEntity=Pet::class, inversedBy="offers")
      * @ORM\JoinColumn(nullable=false)
      */
     private $pet_id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="offers")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="offers")
      * @ORM\JoinColumn(nullable=false)
      */
     private $usr_id;
@@ -85,24 +85,24 @@ class Offer
         return $this;
     }
 
-    public function getPetId(): ?pet
+    public function getPetId(): ?Pet
     {
         return $this->pet_id;
     }
 
-    public function setPetId(?pet $pet_id): self
+    public function setPetId(?Pet $pet_id): self
     {
         $this->pet_id = $pet_id;
 
         return $this;
     }
 
-    public function getUsrId(): ?user
+    public function getUsrId(): ?User
     {
         return $this->usr_id;
     }
 
-    public function setUsrId(?user $usr_id): self
+    public function setUsrId(?User $usr_id): self
     {
         $this->usr_id = $usr_id;
 

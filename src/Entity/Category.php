@@ -25,11 +25,6 @@ class Category
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity=ItemCategory::class, mappedBy="cat_id")
-     */
-    private $itemCagories;
-
-    /**
      * @ORM\OneToMany(targetEntity=ItemCategory::class, mappedBy="cat_id", orphanRemoval=true)
      */
     private $itemCategories;

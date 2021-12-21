@@ -20,12 +20,12 @@ class OrderItems
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity=item::class, mappedBy="orderItems")
+     * @ORM\OneToMany(targetEntity=Item::class, mappedBy="OrderItems")
      */
     private $itm_id;
 
     /**
-     * @ORM\OneToMany(targetEntity=order::class, mappedBy="orderItems")
+     * @ORM\OneToMany(targetEntity=Order::class, mappedBy="OrderItems")
      */
     private $odr_id;
 
@@ -41,14 +41,14 @@ class OrderItems
     }
 
     /**
-     * @return Collection|item[]
+     * @return Collection|Item[]
      */
     public function getItmId(): Collection
     {
         return $this->itm_id;
     }
 
-    public function addItmId(item $itmId): self
+    public function addItmId(Item $itmId): self
     {
         if (!$this->itm_id->contains($itmId)) {
             $this->itm_id[] = $itmId;
@@ -58,7 +58,7 @@ class OrderItems
         return $this;
     }
 
-    public function removeItmId(item $itmId): self
+    public function removeItmId(Item $itmId): self
     {
         if ($this->itm_id->removeElement($itmId)) {
             // set the owning side to null (unless already changed)
@@ -71,14 +71,14 @@ class OrderItems
     }
 
     /**
-     * @return Collection|order[]
+     * @return Collection|Order[]
      */
     public function getOdrId(): Collection
     {
         return $this->odr_id;
     }
 
-    public function addOdrId(order $odrId): self
+    public function addOdrId(Order $odrId): self
     {
         if (!$this->odr_id->contains($odrId)) {
             $this->odr_id[] = $odrId;
@@ -88,7 +88,7 @@ class OrderItems
         return $this;
     }
 
-    public function removeOdrId(order $odrId): self
+    public function removeOdrId(Order $odrId): self
     {
         if ($this->odr_id->removeElement($odrId)) {
             // set the owning side to null (unless already changed)
