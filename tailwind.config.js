@@ -3,5 +3,7 @@ module.exports = {
     darkMode: 'class',
     theme: { extend: {}, },
     variants: { extend: {}, },
-    plugins: [],
+    plugins: [
+        require('@themesberg/flowbite/plugin')
+    ],
 }
