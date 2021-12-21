@@ -3,6 +3,10 @@ Symfony project for bachelor.
 
 ## Get started
 Be sure to use a MySQL local server like PHPMyAdmin (included in Wamp for example).
+Install your runtime environment with the following command:
+```
+composer require symfony/runtime
+```
 
 ## Commands
 ### Setup DB
