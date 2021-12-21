@@ -39,6 +39,11 @@ class Pet
      */
     private $offers;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $age;
+
     public function __construct()
     {
         $this->offers = new ArrayCollection();
@@ -111,6 +116,18 @@ class Pet
                 $offer->setPetId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAge(): ?float
+    {
+        return $this->age;
+    }
+
+    public function setAge(float $age): self
+    {
+        $this->age = $age;
 
         return $this;
     }
