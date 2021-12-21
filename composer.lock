@@ -5,10 +5,14 @@
         "This file is @generated automatically"
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     "content-hash": "cc6fc78145ef3f7803f9d080262da0a3",
 =======
     "content-hash": "19dd3470618e1b8a712ddf1c1591320e",
 >>>>>>> 1b13119 (Fix various uppercase error on entities class name)
+=======
+    "content-hash": "19dd3470618e1b8a712ddf1c1591320e",
+>>>>>>> e70743039ccbc6d5b0f5daacc7dd3954b52e3826
     "packages": [
         {
             "name": "composer/package-versions-deprecated",
