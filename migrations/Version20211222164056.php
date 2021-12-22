@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20211222131809 extends AbstractMigration
+final class Version20211222164056 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -21,8 +21,8 @@ final class Version20211222131809 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TABLE adoption_request (id INT AUTO_INCREMENT NOT NULL, pet_id_id INT NOT NULL, usr_id_id INT NOT NULL, status VARCHAR(30) NOT NULL, document_path VARCHAR(100) NOT NULL, date DATE NOT NULL, INDEX IDX_410896EED2385EF4 (pet_id_id), INDEX IDX_410896EE41AB162D (usr_id_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE cart (id INT AUTO_INCREMENT NOT NULL, usr_id_id INT NOT NULL, UNIQUE INDEX UNIQ_BA388B741AB162D (usr_id_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE cart_items (id INT AUTO_INCREMENT NOT NULL, crt_id_id INT NOT NULL, INDEX IDX_BEF48445310B1872 (crt_id_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE cart (id INT AUTO_INCREMENT NOT NULL, usr_id_id INT NOT NULL, status INT NOT NULL, date DATE NOT NULL, UNIQUE INDEX UNIQ_BA388B741AB162D (usr_id_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE cart_items (id INT AUTO_INCREMENT NOT NULL, crt_id_id INT NOT NULL, itm_qty INT NOT NULL, INDEX IDX_BEF48445310B1872 (crt_id_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE category (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(50) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE item (id INT AUTO_INCREMENT NOT NULL, cart_items_id INT DEFAULT NULL, item_category_id INT DEFAULT NULL, name VARCHAR(50) NOT NULL, price DOUBLE PRECISION NOT NULL, image VARCHAR(100) NOT NULL, description VARCHAR(255) DEFAULT NULL, INDEX IDX_1F1B251EF52FE1EF (cart_items_id), INDEX IDX_1F1B251EF22EC5D4 (item_category_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE item_category (id INT AUTO_INCREMENT NOT NULL, cat_id_id INT NOT NULL, INDEX IDX_6A41D10AC33F2EBA (cat_id_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');

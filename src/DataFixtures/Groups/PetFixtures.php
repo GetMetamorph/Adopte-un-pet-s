@@ -1,28 +1,23 @@
 <?php
 
-namespace App\DataFixtures;
+namespace App\DataFixtures\Groups;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Component\Validator\Mapping\ClassMetadata;
 use App\Entity\Pet;
+use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 
-class AppFixtures extends Fixture
+class PetFixtures extends Fixture implements FixtureGroupInterface
 {
-    /**
-    * @var string A "Y-m-d H:i:s" formatted value
-    */
-    protected $createdAt;
-
-    public static function loadValidatorMetadata(ClassMetadata $metadata)
-    {
-        $metadata->addPropertyConstraint('createdAt', new Assert\DateTime());
+    public static function getGroups(): array {
+        return ['foreignKeyAdoptionRequest', static::class];
     }
-
+    
     public function load(ObjectManager $manager): void
     {
         $date = new \DateTime('@'.strtotime('now'));
+
+        //insert pets
         $species = array("Chat", "Chien", "Hamster");
         for ($i=0; $i < count($species); $i++) {  // pour chaque espèce dans l'array species
             for($j=1; $j<11; $j++){ // on fait 10 animaux different
@@ -31,10 +26,10 @@ class AppFixtures extends Fixture
                 $pet->setSpecies($species[$i]);
                 $pet->setJoinedDate($date);
                 $pet->setAge($j);
-
-                $manager->persist($pet);
+                $manager->persist($pet); // create Pets
             }
         }
+
         $manager->flush();
     }
 }

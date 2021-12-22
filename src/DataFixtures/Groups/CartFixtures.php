@@ -1,7 +1,6 @@
 <?php
 
-namespace App\DataFixtures;
-
+namespace App\DataFixtures\Fixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Cart;

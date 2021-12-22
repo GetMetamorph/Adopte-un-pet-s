@@ -1,19 +1,22 @@
 <?php
 
-namespace App\DataFixtures;
+namespace App\DataFixtures\Groups;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\User;
+use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 
-class UserFixtures extends Fixture
+class UserFixtures extends Fixture implements FixtureGroupInterface
 {
-
+    public static function getGroups(): array {
+        return ['foreignKeyAdoptionRequest', static::class];
+    }
     public function load(ObjectManager $manager): void
     {
         $lastname = array("Kanouni", "Morlot", "Grums", "Beh-Rhouma", "Eddine", "Doe", "Escobar", "Smith", "Sparrow", "Gordo");
         $firstname = array("Driss", "Ivan", "Dylan", "Myhed", "Alley", "John", "Pablo", "Will", "Jack", "Eddy");
-        $mail = array("dk@mail.fr", "im@mail.fr", "mb@mail.fr", "ae@mail.fr", "jd@mail.fr", "pe@mail.fr", "ws@mail.fr", "js@mail.fr", "eg@mail.fr");
+        $mail = array("dk@mail.fr", "im@mail.fr", "dg@mail.fr", "mb@mail.fr", "ae@mail.fr", "jd@mail.fr", "pe@mail.fr", "ws@mail.fr", "js@mail.fr", "eg@mail.fr");
 
         for ($i=0; $i < count($lastname); $i++)
         { 
