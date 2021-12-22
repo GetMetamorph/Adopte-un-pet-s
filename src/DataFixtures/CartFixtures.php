@@ -17,7 +17,6 @@ class CartFixtures extends Fixture
             //$cart->setUsrId($i);
             $manager->persist($cart); 
         }
-
         $manager->flush();
     }
 }

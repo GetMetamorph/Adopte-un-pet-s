@@ -56,18 +56,18 @@ class User
     private $adress;
 
     /**
-     * @ORM\OneToMany(targetEntity=Offer::class, mappedBy="usr_id", orphanRemoval=true)
-     */
-    private $offers;
-
-    /**
      * @ORM\OneToOne(targetEntity=Cart::class, mappedBy="usr_id", cascade={"persist", "remove"})
      */
     private $cart;
 
+    /**
+     * @ORM\OneToMany(targetEntity=AdoptionRequest::class, mappedBy="usrId", orphanRemoval=true)
+     */
+    private $adoptionRequests;
+
     public function __construct()
     {
-        $this->offers = new ArrayCollection();
+        $this->adoptionRequests = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -159,36 +159,6 @@ class User
         return $this;
     }
 
-    /**
-     * @return Collection|Offer[]
-     */
-    public function getOffers(): Collection
-    {
-        return $this->offers;
-    }
-
-    public function addOffer(Offer $offer): self
-    {
-        if (!$this->offers->contains($offer)) {
-            $this->offers[] = $offer;
-            $offer->setUsrId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeOffer(Offer $offer): self
-    {
-        if ($this->offers->removeElement($offer)) {
-            // set the owning side to null (unless already changed)
-            if ($offer->getUsrId() === $this) {
-                $offer->setUsrId(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getCart(): ?Cart
     {
         return $this->cart;
@@ -202,6 +172,36 @@ class User
         }
 
         $this->cart = $cart;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|AdoptionRequest[]
+     */
+    public function getAdoptionRequests(): Collection
+    {
+        return $this->adoptionRequests;
+    }
+
+    public function addAdoptionRequest(AdoptionRequest $adoptionRequest): self
+    {
+        if (!$this->adoptionRequests->contains($adoptionRequest)) {
+            $this->adoptionRequests[] = $adoptionRequest;
+            $adoptionRequest->setUsrId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdoptionRequest(AdoptionRequest $adoptionRequest): self
+    {
+        if ($this->adoptionRequests->removeElement($adoptionRequest)) {
+            // set the owning side to null (unless already changed)
+            if ($adoptionRequest->getUsrId() === $this) {
+                $adoptionRequest->setUsrId(null);
+            }
+        }
 
         return $this;
     }

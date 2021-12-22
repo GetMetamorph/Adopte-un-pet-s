@@ -35,18 +35,19 @@ class Pet
     private $joinedDate;
 
     /**
-     * @ORM\OneToMany(targetEntity=Offer::class, mappedBy="pet_id", orphanRemoval=true)
-     */
-    private $offers;
-
-    /**
      * @ORM\Column(type="float")
      */
     private $age;
 
+    /**
+     * @ORM\OneToMany(targetEntity=AdoptionRequest::class, mappedBy="petId", orphanRemoval=true)
+     */
+    private $adoptionRequests;
+
     public function __construct()
     {
         $this->offers = new ArrayCollection();
+        $this->adoptionRequests = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -90,36 +91,6 @@ class Pet
         return $this;
     }
 
-    /**
-     * @return Collection|Offer[]
-     */
-    public function getOffers(): Collection
-    {
-        return $this->offers;
-    }
-
-    public function addOffer(Offer $offer): self
-    {
-        if (!$this->offers->contains($offer)) {
-            $this->offers[] = $offer;
-            $offer->setPetId($this);
-        }
-
-        return $this;
-    }
-
-    public function removeOffer(Offer $offer): self
-    {
-        if ($this->offers->removeElement($offer)) {
-            // set the owning side to null (unless already changed)
-            if ($offer->getPetId() === $this) {
-                $offer->setPetId(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getAge(): ?float
     {
         return $this->age;
@@ -128,6 +99,36 @@ class Pet
     public function setAge(float $age): self
     {
         $this->age = $age;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|AdoptionRequest[]
+     */
+    public function getAdoptionRequests(): Collection
+    {
+        return $this->adoptionRequests;
+    }
+
+    public function addAdoptionRequest(AdoptionRequest $adoptionRequest): self
+    {
+        if (!$this->adoptionRequests->contains($adoptionRequest)) {
+            $this->adoptionRequests[] = $adoptionRequest;
+            $adoptionRequest->setPetId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdoptionRequest(AdoptionRequest $adoptionRequest): self
+    {
+        if ($this->adoptionRequests->removeElement($adoptionRequest)) {
+            // set the owning side to null (unless already changed)
+            if ($adoptionRequest->getPetId() === $this) {
+                $adoptionRequest->setPetId(null);
+            }
+        }
 
         return $this;
     }

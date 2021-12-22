@@ -43,11 +43,6 @@ class Item
     private $cartItems;
 
     /**
-     * @ORM\ManyToOne(targetEntity=OrderItems::class, inversedBy="itm_id")
-     */
-    private $orderItems;
-
-    /**
      * @ORM\ManyToOne(targetEntity=ItemCategory::class, inversedBy="itm_id")
      */
     private $itemCategory;
@@ -117,17 +112,6 @@ class Item
         return $this;
     }
 
-    public function getOrderItems(): ?OrderItems
-    {
-        return $this->orderItems;
-    }
-
-    public function setOrderItems(?OrderItems $orderItems): self
-    {
-        $this->orderItems = $orderItems;
-
-        return $this;
-    }
 
     public function getItemCategory(): ?ItemCategory
     {

@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\OfferRepository;
+use App\Repository\AdoptionRequestRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=OfferRepository::class)
+ * @ORM\Entity(repositoryClass=AdoptionRequestRepository::class)
  */
-class Offer
+class AdoptionRequest
 {
     /**
      * @ORM\Id
@@ -18,7 +18,7 @@ class Offer
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=30)
      */
     private $status;
 
@@ -33,16 +33,16 @@ class Offer
     private $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Pet::class, inversedBy="offers")
+     * @ORM\ManyToOne(targetEntity=Pet::class, inversedBy="adoptionRequests")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $pet_id;
+    private $petId;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="offers")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="adoptionRequests")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $usr_id;
+    private $usrId;
 
     public function getId(): ?int
     {
@@ -87,24 +87,24 @@ class Offer
 
     public function getPetId(): ?Pet
     {
-        return $this->pet_id;
+        return $this->petId;
     }
 
-    public function setPetId(?Pet $pet_id): self
+    public function setPetId(?Pet $petId): self
     {
-        $this->pet_id = $pet_id;
+        $this->petId = $petId;
 
         return $this;
     }
 
     public function getUsrId(): ?User
     {
-        return $this->usr_id;
+        return $this->usrId;
     }
 
-    public function setUsrId(?User $usr_id): self
+    public function setUsrId(?User $usrId): self
     {
-        $this->usr_id = $usr_id;
+        $this->usrId = $usrId;
 
         return $this;
     }
