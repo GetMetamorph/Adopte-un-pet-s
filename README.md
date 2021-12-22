@@ -24,3 +24,14 @@ php bin/console doctrine:migrations:migrate
 ```
 php bin/console make:migration
 ```
+Fixtures progress : 
+
+AdoptionRequest: Done
+Pet: Done
+Cart: Created but not finished;
+Category: Done
+Item: Almost Done, miss insert to cart_items_id and item_category_id
+User: Almost Donen miss insert to cart
+CartItems: TO DO
+ItemCategory: TO DO
+```

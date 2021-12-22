@@ -44,7 +44,7 @@ class AdoptionRequestFixtures extends Fixture
             $adoption->setUsrId($users[$key]);
             $adoption->setDocumentPath("assets/documents/file.pdf");
             $adoption->setDate($date);
-            $manager->persist($adoption);
+            $manager->persist($adoption); 
         }
         $manager->flush();
     }
