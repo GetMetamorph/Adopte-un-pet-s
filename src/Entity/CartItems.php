@@ -30,6 +30,11 @@ class CartItems
      */
     private $itm_id;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $itmQty;
+
     public function __construct()
     {
         $this->itm_id = new ArrayCollection();
@@ -78,6 +83,18 @@ class CartItems
                 $itmId->setCartItems(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getItmQty(): ?int
+    {
+        return $this->itmQty;
+    }
+
+    public function setItmQty(int $itmQty): self
+    {
+        $this->itmQty = $itmQty;
 
         return $this;
     }
