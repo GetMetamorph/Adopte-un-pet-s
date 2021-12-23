@@ -1,20 +1,27 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TestController!{% endblock %}
 
+{% block title %}Test
+{% endblock %}
+
+{% block header %}{% endblock %}
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	{{ include('components/header.html.twig') }}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/Adopte-un-pet-s/src/Controller/TestController.php'|file_link(0) }}">src/Controller/TestController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/Adopte-un-pet-s/templates/test/index.html.twig'|file_link(0) }}">templates/test/index.html.twig</a></code></li>
-    </ul>
-</div>
+        <div class="container px-6 py-16 mx-auto">
+            <div class="items-center lg:flex">
+                <div class="w-full lg:w-1/2">
+                    <div class="lg:max-w-lg">
+                        <h1 class="text-2xl font-semibold text-gray-800 uppercase dark:text-white lg:text-3xl">Lutter contre l’abandon</h1>
+                        <p class="mt-2 text-gray-600 dark:text-gray-400">Aujourd’hui, Adopte un pet, c’est plus de 2000 animaux et autant de gamelles quotidiennes. Chaque animal y est soigné, identifié, stérilisé, et vacciné.</p>
+                        {# <button class="w-full px-3 py-2 mt-6 text-xs font-medium text-white uppercase transition-colors duration-200 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500">Shop Now</button> #}
+                    </div>
+                </div>
+        
+                <div class="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
+                    <img class="w-full h-full lg:max-w-2xl" src="{{ asset('build/img/dogo.jpg') }}">
+                </div>
+            </div>
+        </div>
 {% endblock %}
