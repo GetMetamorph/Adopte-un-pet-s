@@ -9,7 +9,7 @@ use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 class CartFixtures extends MockedDatasCart implements FixtureGroupInterface
 {
     public static function getGroups(): array {
-        return ['foreignKeyCart', static::class];
+        return ['foreignKeyCartItems', static::class];
     }
 
     public function __construct(UserRepository $reposUser)

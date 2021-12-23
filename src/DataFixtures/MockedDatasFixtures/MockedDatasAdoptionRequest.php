@@ -27,7 +27,7 @@ abstract class MockedDatasAdoptionRequest extends Fixture {
         $adoption->setUsrId($user);
         $adoption->setDocumentPath("assets/documents/file.pdf");
         $adoption->setDate($date);
-        $adoption->setStatus($this->handleStatusAdoptionRequest($keyUser));
+        $adoption->setStatus($this->handleStatusAdoptionRequest());
         
         return $adoption;
     }

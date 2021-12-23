@@ -10,7 +10,7 @@ use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 class UserFixtures extends Fixture implements FixtureGroupInterface
 {
     public static function getGroups(): array {
-        return ['foreignKeyAdoptionRequest', static::class];
+        return ['foreignKeyAdoptionRequest','foreignKeyCartItems',static::class];
     }
     public function load(ObjectManager $manager): void
     {

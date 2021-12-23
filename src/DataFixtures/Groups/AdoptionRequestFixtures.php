@@ -7,6 +7,8 @@ use App\Repository\UserRepository;
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use App\DataFixtures\MockedDatasFixtures\MockedDatasAdoptionRequest;
 
+use Psr\Log\LoggerInterface;
+
 class AdoptionRequestFixtures extends MockedDatasAdoptionRequest implements FixtureGroupInterface
 {
     public static function getGroups(): array {
