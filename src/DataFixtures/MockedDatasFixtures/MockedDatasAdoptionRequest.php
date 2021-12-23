@@ -4,10 +4,8 @@ namespace App\DataFixtures\MockedDatasFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-
 use App\Entity\AdoptionRequest;
 use App\Entity\User;
-
 
 abstract class MockedDatasAdoptionRequest extends Fixture {
     private array $users;
@@ -33,7 +31,7 @@ abstract class MockedDatasAdoptionRequest extends Fixture {
         
         return $adoption;
     }
-    private function handleStatusAdoptionRequest(int $petId): string {
+    private function handleStatusAdoptionRequest(): string {
         if ($this->counter <= (count($this->pets)-1)){
             $this->counter = $this->counter + 4;
             return $this->status[0];

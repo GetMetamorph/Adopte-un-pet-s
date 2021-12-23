@@ -1,8 +1,6 @@
 <?php
 
 namespace App\DataFixtures\Groups;
-
-
 use Doctrine\Persistence\ObjectManager;
 use App\Repository\PetRepository;
 use App\Repository\UserRepository;
@@ -14,6 +12,7 @@ class AdoptionRequestFixtures extends MockedDatasAdoptionRequest implements Fixt
     public static function getGroups(): array {
         return ['foreignKeyAdoptionRequest', static::class];
     }
+    
     public function __construct(PetRepository $reposPet, UserRepository $reposUser)
     {
         $this->reposPet = $reposPet;

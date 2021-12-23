@@ -1,21 +1,24 @@
 <?php
 
-namespace App\DataFixtures\Fixtures;
-use Doctrine\Bundle\FixturesBundle\Fixture;
+namespace App\DataFixtures\Groups;
 use Doctrine\Persistence\ObjectManager;
-use App\Entity\Cart;
+use App\Repository\UserRepository;
+use App\DataFixtures\MockedDatasFixtures\MockedDatasCart;
+use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 
-class CartFixtures extends Fixture
+class CartFixtures extends MockedDatasCart implements FixtureGroupInterface
 {
+    public static function getGroups(): array {
+        return ['foreignKeyCart', static::class];
+    }
+
+    public function __construct(UserRepository $reposUser)
+    {
+        $this->reposUser = $reposUser;
+    }
 
     public function load(ObjectManager $manager): void
     {
-        for($i=0; $i<10; $i++)
-        {
-            $cart = new Cart();
-            //$cart->setUsrId($i);
-            $manager->persist($cart); 
-        }
-        $manager->flush();
+        $this->mockedDatasCartFixtures($manager);
     }
 }
