@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20211222164056 extends AbstractMigration
+final class Version20211224111129 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -26,7 +26,7 @@ final class Version20211222164056 extends AbstractMigration
         $this->addSql('CREATE TABLE category (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(50) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE item (id INT AUTO_INCREMENT NOT NULL, cart_items_id INT DEFAULT NULL, item_category_id INT DEFAULT NULL, name VARCHAR(50) NOT NULL, price DOUBLE PRECISION NOT NULL, image VARCHAR(100) NOT NULL, description VARCHAR(255) DEFAULT NULL, INDEX IDX_1F1B251EF52FE1EF (cart_items_id), INDEX IDX_1F1B251EF22EC5D4 (item_category_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE item_category (id INT AUTO_INCREMENT NOT NULL, cat_id_id INT NOT NULL, INDEX IDX_6A41D10AC33F2EBA (cat_id_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE pet (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(50) NOT NULL, species VARCHAR(50) NOT NULL, joined_date DATE NOT NULL, age DOUBLE PRECISION NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE pet (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(50) NOT NULL, species VARCHAR(50) NOT NULL, joined_date DATE NOT NULL, age DOUBLE PRECISION NOT NULL, image VARCHAR(100) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('CREATE TABLE `user` (id INT AUTO_INCREMENT NOT NULL, lastname VARCHAR(30) NOT NULL, firstname VARCHAR(30) NOT NULL, mail VARCHAR(50) NOT NULL, phone VARCHAR(30) NOT NULL, password VARCHAR(50) NOT NULL, privilege TINYINT(1) NOT NULL, adress VARCHAR(100) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
         $this->addSql('ALTER TABLE adoption_request ADD CONSTRAINT FK_410896EED2385EF4 FOREIGN KEY (pet_id_id) REFERENCES pet (id)');
         $this->addSql('ALTER TABLE adoption_request ADD CONSTRAINT FK_410896EE41AB162D FOREIGN KEY (usr_id_id) REFERENCES `user` (id)');
