@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détail Réservation
+{% endblock %}
+
+{% block body %}
+	<!-- component -->
+	<div>
+		{# <script src="https://cdn.jsdelivr.net/gh/alpin:ejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> #}
+
+		<div x-data="{ sidebarOpen: false, currentNav: 'reservation' }" class="flex h-screen bg-gray-200 dark:bg-gray-800 dark:text-white">
+			{{ include('components/dashboard-sidebar.html.twig') }}
+
+			<div class="flex-1 flex flex-col overflow-hidden">
+				{{ include('components/dashboard-header.html.twig') }}
+
+				<main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 dark:bg-gray-900">
+					<div class="container mx-auto px-6 py-8">
+						<div class="bg-slate-700 w-full py-10 px-10">
+							<div>
+								<div class="sm:flex space-x-7 md:items-start items-center w-full">
+									<div class="mb-4">
+										<img class="rounded-md md:w-100" src="https://avatars.githubusercontent.com/u/42895888?v=4" alt="brad"/>
+									</div>
+									<div class="w-full">
+										<h1 class="text-slate-100 text-4xl font-bold my-1">Bruce</h1>
+										<div>
+											<span class="inline-block w-40 h-1 rounded-full bg-blue-500"></span>
+											<span class="inline-block w-3 h-1 ml-1 rounded-full bg-blue-500"></span>
+											<span class="inline-block w-1 h-1 ml-1 rounded-full bg-blue-500"></span>
+										</div>
+										<div class="mt-4 sm:grid grid-cols-3 sm:space-x-4">
+											<div class="bg-slate-600 rounded-md mb-4">
+												<span class="text-slate-400 text-md dark:text-gray-300">Animal</span>
+												<h2 class="text-slate-100 text-2xl font-semibold">Chien</h2>
+											</div>
+											<div class="bg-slate-600 rounded-md mb-4">
+												<span class="text-slate-400 text-md dark:text-gray-300">Age</span>
+												<h2 class="text-slate-100 text-2xl font-semibold">18 mois</h2>
+											</div>
+											<div class="bg-slate-600 rounded-md mb-4">
+												<span class="text-slate-400 text-md dark:text-gray-300">Arrivé chez nous</span>
+												<h2 class="text-slate-100 text-2xl font-semibold">12 novembre 2021</h2>
+											</div>
+										</div>
+										<h2 class="text-lg mb-2 text-gray-700 capitalize dark:text-white">Demandeur</h2>
+
+										<div class="pb-2 lg:w-1/2 md:w-1/3 w-full mt-3">
+											<div class="h-full flex items-center mb-4 rounded-lg">
+												<img alt="team" class="w-14 h-14 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="https://avatars.dicebear.com/api/adventurer-neutral/grums.svg">
+												<div class="flex-grow">
+													<h2 class="text-gray-900 title-font font-medium  dark:text-white">Dylan Grumellon</h2>
+													<p class="text-gray-500  dark:text-gray-300">dylangrum@hotmail.fr</p>
+												</div>
+											</div>
+										</div>
+
+										<div class="flex justify-between items-center">
+
+											<button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+												Télécharger la pièce d'identité
+												<svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+													<path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+												</svg>
+											</button>
+
+											<div class='inline-flex items-center '>
+												<button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Accepter</button>
+												<button type="button" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Refuser</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</main>
+			</div>
+		</div>
+	</div>
+{% endblock %}
