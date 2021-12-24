@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit
+{% endblock %}
+{% block javascripts %}
+	<script type="text/javascript">
+		document.getElementById('picField').onchange = function (evt) {
+            var tgt = evt.target || window.event.srcElement,
+            files = tgt.files;
+
+            // FileReader support
+            if (FileReader && files && files.length) {
+                var fr = new FileReader();
+                fr.onload = function () {
+                    console.log('img', document.getElementById('outImage'))
+                    document.getElementById('outImage').src = fr.result;
+                }
+                fr.readAsDataURL(files[0]);
+            }
+        }
+	</script>
+{% endblock %}
+{% block body %}
+	<!-- component -->
+	<div>
+		{# <script src="https://cdn.jsdelivr.net/gh/alpin:ejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> #}
+
+		<div x-data="{ sidebarOpen: false, currentNav: 'products' }" class="flex h-screen bg-gray-200 dark:bg-gray-800 dark:text-white">
+			{{ include('components/dashboard-sidebar.html.twig') }}
+
+			<div class="flex-1 flex flex-col overflow-hidden">
+				{{ include('components/dashboard-header.html.twig') }}
+
+				<main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 dark:bg-gray-900" style='overflow: hidden'>
+					<div class="container mx-auto px-6 py-8">
+
+						<section class="text-gray-600 body-font">
+							<div class="container mx-auto flex md:flex-row flex-col items-center">
+								<div class="lg:flex-grow md:w-1/2 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+									<h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Produit</h1>
+									<form class='w-full'>
+										<div class='w-full pr-2' style='max-height: 435px; overflow: auto;'>
+											<div class="mb-6">
+												<label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nom</label>
+												<input type="name" id="name" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required>
+											</div>
+											<div class="mb-6">
+												<label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Prix</label>
+												<div class="flex">
+													<span class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 rounded-l-md border border-r-0 border-gray-300 dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+														€
+													</span>
+													<input type="number" class="rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+												</div>
+											</div>
+											<div class="mb-6">
+												<label for="quantity" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Quantité en stock</label>
+												<input type="number" id="quantity" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required>
+											</div>
+											<div class="mb-6">
+												<label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Description</label>
+												<textarea id="message" rows="4" class="block p-2 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Description..."></textarea>
+
+											</div>
+											<div class="mb-6">
+												<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="user_avatar">Image du produit</label>
+												<input class="block w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 cursor-pointer dark:text-gray-400 focus:outline-none focus:border-transparent dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="user_avatar_help" id="picField" type="file">
+											</div>
+										</div>
+										<button type="submit" class="text-white mt-5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sauvegarder</button>
+									</form>
+								</div>
+								<div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 ml-6">
+									<img id='outImage' class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600">
+								</div>
+							</div>
+						</section>
+					</div>
+				</main>
+			</div>
+		</div>
+	</div>
+{% endblock %}
