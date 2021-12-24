@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produits
+{% endblock %}
+
+{% block body %}
+	<!-- component -->
+	<div>
+		{# <script src="https://cdn.jsdelivr.net/gh/alpin:ejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> #}
+
+		<div x-data="{ sidebarOpen: false, currentNav: 'products' }" class="flex h-screen bg-gray-200 dark:bg-gray-800 dark:text-white">
+			{{ include('components/dashboard-sidebar.html.twig') }}
+
+			<div class="flex-1 flex flex-col overflow-hidden">
+				{{ include('components/dashboard-header.html.twig') }}
+
+				<main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 dark:bg-gray-900">
+					<div class="container mx-auto px-6 py-8">
+						<h3 class="text-gray-700 dark:text-white text-2xl font-medium">Produits</h3>
+
+						<div class="flex flex-col mt-5">
+							<div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+								<div class="align-middle inline-block min-w-full overflow-hidden sm:rounded-lg border-gray-200">
+									<table class="min-w-full">
+										<thead class="bg-gray-50 dark:bg-gray-700">
+											<tr>
+												<th class="px-6 py-3  text-left text-xs leading-4 font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+													Nom</th>
+												<th class="px-6 py-3  text-left text-xs leading-4 font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+													Prix</th>
+												<th class="px-6 py-3  text-left text-xs leading-4 font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+													Stock</th>
+												<th class="px-6 py-3 "></th>
+											</tr>
+										</thead>
+
+										<tbody>
+											<tr class="bg-white dark:bg-gray-800 dark:border-gray-700">
+												<td class="px-6 py-4 whitespace-no-wrap">
+													<div class="flex items-center">
+														<div class="flex-shrink-0 h-10 w-10">
+															<img class="h-10 w-10 rounded-full" src="{{ asset('build/img/panier.jpg') }}" alt="">
+														</div>
+
+														<div class="ml-4">
+															<div class="text-sm leading-5 font-medium text-gray-900 dark:text-white">Panier hexagonale pour chien
+															</div>
+														</div>
+													</div>
+												</td>
+
+												<td class="px-6 py-4 whitespace-no-wrap border-gray-200">
+													<div class="text-sm leading-5 text-gray-900 dark:text-white">12.99€</div>
+												</td>
+
+
+												<td class="px-6 py-4 whitespace-no-wrap border-gray-200 text-sm leading-5 text-gray-500 dark:text-gray-300">
+													142
+												</td>
+
+												<td class="px-6 py-4 whitespace-no-wrap text-right border-gray-200 text-sm leading-5 font-medium">
+													<a href="#" class="text-indigo-600 hover:text-indigo-900">Editer</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</main>
+			</div>
+		</div>
+	</div>
+{% endblock %}
