@@ -2,9 +2,9 @@
 Symfony project for bachelor.
 ## Get started
 Be sure to **use a MySQL local server** like PHPMyAdmin (included in Wamp for example).  
-**Install your runtime environment** with the following command:
+**Install your environment** with the following command:
 ```
-composer require symfony/runtime
+composer install
 ```
 **Run** the app:
 ```
@@ -16,17 +16,19 @@ The app is **available at** [localhost:8000](http://localhost:8000/).
 ```
 symfony console doctrine:database:create
 ```
-### Add a migration task
+### Migrate your local DB
 ```
 php bin/console doctrine:migrations:migrate
 ```
-### Migrate your local DB
+### Add a migration task
 ```
 php bin/console make:migration
 ```
-Fixtures progress : 
-
+### Fill the database with mocked data:
 ```
+php bin/console doctrine:fixtures:load
+```
+## Fixtures progress:
 AdoptionRequest: Done
 Pet: Done
 Cart: Created but not finished;
