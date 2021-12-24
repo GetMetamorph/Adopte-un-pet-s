@@ -65,6 +65,21 @@ class User
      */
     private $adoptionRequests;
 
+    /**
+     * @ORM\Column(type="string", length=30, nullable=true)
+     */
+    private $creditCardType;
+
+    /**
+     * @ORM\Column(type="string", length=30, nullable=true)
+     */
+    private $creditCardNumber;
+
+    /**
+     * @ORM\Column(type="string", length=30, nullable=true)
+     */
+    private $creditCardExpirationDate;
+
     public function __construct()
     {
         $this->adoptionRequests = new ArrayCollection();
@@ -202,6 +217,42 @@ class User
                 $adoptionRequest->setUsrId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCreditCardType(): ?string
+    {
+        return $this->creditCardType;
+    }
+
+    public function setCreditCardType(?string $creditCardType): self
+    {
+        $this->creditCardType = $creditCardType;
+
+        return $this;
+    }
+
+    public function getCreditCardNumber(): ?string
+    {
+        return $this->creditCardNumber;
+    }
+
+    public function setCreditCardNumber(?string $creditCardNumber): self
+    {
+        $this->creditCardNumber = $creditCardNumber;
+
+        return $this;
+    }
+
+    public function getCreditCardExpirationDate(): ?string
+    {
+        return $this->creditCardExpirationDate;
+    }
+
+    public function setCreditCardExpirationDate(?string $creditCardExpirationDate): self
+    {
+        $this->creditCardExpirationDate = $creditCardExpirationDate;
 
         return $this;
     }

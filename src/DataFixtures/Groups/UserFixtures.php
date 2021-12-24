@@ -5,6 +5,7 @@ namespace App\DataFixtures\Groups;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\User;
+use Faker\Factory;
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 
 class UserFixtures extends Fixture implements FixtureGroupInterface
@@ -18,6 +19,9 @@ class UserFixtures extends Fixture implements FixtureGroupInterface
         $firstname = array("Driss", "Ivan", "Dylan", "Myhed", "Alley", "John", "Pablo", "Will", "Jack", "Eddy");
         $mail = array("dk@mail.fr", "im@mail.fr", "dg@mail.fr", "mb@mail.fr", "ae@mail.fr", "jd@mail.fr", "pe@mail.fr", "ws@mail.fr", "js@mail.fr", "eg@mail.fr");
 
+        // use the factory to create a Faker\Generator instance
+        $faker = Factory::create();
+        
         for ($i=0; $i < count($lastname); $i++)
         { 
             $user = new User();
@@ -36,6 +40,9 @@ class UserFixtures extends Fixture implements FixtureGroupInterface
                 $user->setPrivilege(0); // 0 : basic user
                 $user->setPassword("user");
             }
+            $user->setCreditCardType($faker->creditCardType());
+            $user->setCreditCardNumber($faker->creditCardNumber());
+            $user->setCreditCardExpirationDate($faker->creditCardExpirationDateString());
             $manager->persist($user);
         }
         $manager->flush();
