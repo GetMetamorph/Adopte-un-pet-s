@@ -9,6 +9,11 @@
 	{{ include('components/header.html.twig') }}
 
 
+        {% for pet in pets %}
+            {{dump(pet)}}
+            {{pet.name}}
+        {% endfor %}
+
         <div class="container px-6 py-16 mx-auto">
             <div class="items-center lg:flex">
                 <div class="w-full lg:w-1/2">
