@@ -6,6 +6,7 @@ use App\DataFixtures\Groups\UserFixtures;
 use App\DataFixtures\Groups\AdoptionRequestFixtures;
 use App\DataFixtures\Groups\CartFixtures;
 use App\DataFixtures\Groups\CartItemsFixtures;
+use App\DataFixtures\Groups\DonationFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
@@ -18,7 +19,7 @@ class GroupFixtures extends Fixture implements DependentFixtureInterface {
         return [
             UserFixtures::class,
             PetFixtures::class,
-            Donation::class,
+            DonationFixtures::class,
             AdoptionRequestFixtures::class,
             CartFixtures::class,
             CartItemsFixtures::class
