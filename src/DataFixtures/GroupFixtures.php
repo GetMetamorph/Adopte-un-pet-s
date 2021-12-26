@@ -18,6 +18,7 @@ class GroupFixtures extends Fixture implements DependentFixtureInterface {
         return [
             UserFixtures::class,
             PetFixtures::class,
+            Donation::class,
             AdoptionRequestFixtures::class,
             CartFixtures::class,
             CartItemsFixtures::class

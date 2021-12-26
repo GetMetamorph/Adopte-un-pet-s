@@ -1,0 +1,24 @@
+<?php
+
+namespace App\DataFixtures\Groups;
+use Doctrine\Persistence\ObjectManager;
+use App\Repository\UserRepository;
+use App\DataFixtures\MockedDatasFixtures\MockedDatasDonation;
+use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
+
+class DonationFixtures extends MockedDatasDonation implements FixtureGroupInterface
+{
+    public static function getGroups(): array {
+        return ['foreignKeyDonation', static::class];
+    }
+
+    public function __construct(UserRepository $reposUser)
+    {
+        $this->reposUser = $reposUser;
+    }
+
+    public function load(ObjectManager $manager): void
+    {
+        $this->mockedDatasDonationFixtures($manager);
+    }
+}

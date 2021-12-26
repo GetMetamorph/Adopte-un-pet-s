@@ -80,9 +80,15 @@ class User
      */
     private $creditCardExpirationDate;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Donation::class, mappedBy="user")
+     */
+    private $donations;
+
     public function __construct()
     {
         $this->adoptionRequests = new ArrayCollection();
+        $this->donations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -253,6 +259,36 @@ class User
     public function setCreditCardExpirationDate(?string $creditCardExpirationDate): self
     {
         $this->creditCardExpirationDate = $creditCardExpirationDate;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Donation[]
+     */
+    public function getDonations(): Collection
+    {
+        return $this->donations;
+    }
+
+    public function addDonation(Donation $donation): self
+    {
+        if (!$this->donations->contains($donation)) {
+            $this->donations[] = $donation;
+            $donation->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDonation(Donation $donation): self
+    {
+        if ($this->donations->removeElement($donation)) {
+            // set the owning side to null (unless already changed)
+            if ($donation->getUser() === $this) {
+                $donation->setUser(null);
+            }
+        }
 
         return $this;
     }
