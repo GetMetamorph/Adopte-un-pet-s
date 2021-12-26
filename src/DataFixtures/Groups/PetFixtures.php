@@ -41,11 +41,11 @@ class PetFixtures extends Fixture implements FixtureGroupInterface
                 {
                     $pet->setImage($faker->imageUrl(360, 360, 'animals', true, 'hamsters'));//hamsters n'existe peut être pas
                 }
+                $pet->setDescription($faker->paragraph());
                 $pet->setAge($j);
                 $manager->persist($pet); // create Pets
             }
         }
-
         $manager->flush();
     }
 }
