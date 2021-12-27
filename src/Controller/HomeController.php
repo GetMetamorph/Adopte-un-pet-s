@@ -31,7 +31,7 @@ class HomeController extends AbstractController
         $logger->info('toto');
         $logger->info(json_encode($this->petRepos->findBy(
             array(),        // $where 
-            array('joinedDate' => 'DESC'),    // $orderBy
+            array('joinedDate' => 'ASC'),    // $orderBy
             30,                        // $limit
             0                          // $offset
           )));
