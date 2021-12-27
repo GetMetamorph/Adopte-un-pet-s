@@ -19,10 +19,19 @@ class HomeController extends AbstractController
     public function index(LoggerInterface $logger): Response
     {
         $logger->info('toto');
-        $logger->info(json_encode($this->petRepos->findAll()));
+        $logger->info(json_encode($this->petRepos->findBy(
+            array(),        // $where 
+            array('joinedDate' => 'DESC'),    // $orderBy
+            30,                        // $limit
+            0                          // $offset
+          )));
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
-            'pets' => $this->petRepos->findAll()
-        ]);
+            'pets' => $this->petRepos->findBy(
+                array(),        // $where 
+                array('joinedDate' => 'DESC'),    // $orderBy
+                30,                        // $limit
+                0                          // $offset
+              )]);
     }
 }
