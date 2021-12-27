@@ -14,7 +14,9 @@
                     <div class="lg:max-w-lg">
                         <h1 class="text-2xl font-semibold text-gray-800 uppercase dark:text-white lg:text-3xl">Lutter contre l’abandon</h1>
                         <p class="mt-2 text-gray-600 dark:text-gray-400">Aujourd’hui, Adopte un pet, c’est plus de 2000 animaux et autant de gamelles quotidiennes. Chaque animal y est soigné, identifié, stérilisé, et vacciné.</p>
-                        {# <button class="w-full px-3 py-2 mt-6 text-xs font-medium text-white uppercase transition-colors duration-200 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500">Shop Now</button> #}
+                        <div style="text-align: center;">
+                          <button class="w-full px-3 py-2 mt-6 text-xs font-medium text-white uppercase transition-colors duration-200 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500">Faire un don</button> 
+                        </div>
                     </div>
                 </div>
         
@@ -25,30 +27,13 @@
         </div>
         
         <section class="text-gray-600 body-font">
-  <div class="container px-5 py-24 mx-auto flex flex-wrap items-center">
-    <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
-      <h1 class="title-font font-medium text-3xl text-gray-900 dark:text-white">Vous voulez soutenir la cause des animaux démuni d'amour ?</h1>
-      <p class="leading-relaxed mt-4 dark:text-white">Inscrivez-vous à notre Newsletter, vous deviendrez membre et serez prévenue des dèrenières des actualités</p>
-    </div>q
-    <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
-      <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Rejoindre la Newsletter</h2>
-      <div class="relative mb-4">
-        <label for="full-name" class="leading-7 text-sm text-gray-600">Nom</label>
-        <input type="text" id="full-name" name="full-name" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-      </div>
-      <div class="relative mb-4">
-        <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
-        <input type="email" id="email" name="email" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-      </div>
-      <button class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Valider</button>
-      <p class="text-xs text-gray-500 mt-3">.</p>
-    </div>
-  </div>
   </section>
+  <p class="text-4xl dark:text-white" style="margin-bottom:100px; margin-left:30px">Les 30 plus récents animaux</p>
   <div class="container mx-auto">
     <div class="flex flex-wrap justify-between">
 
     {% for pet in pets %}
+      <div class=" px-5  mx-auto flex flex-wrap items-center">
         <div class="max-w-xs bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mb-8">
           <a href="#">
               <img class="rounded-t-lg" src="{{pet.image}}" alt="Pet Image" />
@@ -62,6 +47,7 @@
             </a>
           </div>
         </div>
+      </div>
     {% endfor %}
 
        </div>
