@@ -25,6 +25,14 @@ class HomeController extends AbstractController
         return $this->render('home/index.html.twig', ['pet' => $pet]);
     }
 
+    #[Route('/adoption/{id}', name: 'adoption', methods: ['GET'])]
+    public function adoptionPet($id): Response {
+
+        return $this->render('adoptions/index.html.twig', [
+            'petId' => $id
+        ]);
+    }
+
     #[Route('/home', name: 'home')]
     public function index(LoggerInterface $logger): Response
     {
