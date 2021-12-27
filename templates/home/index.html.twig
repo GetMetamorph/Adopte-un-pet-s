@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 
-{% block title %}Accueil
+{% block title %}Test
 {% endblock %}
 
 {% block header %}{% endblock %}
@@ -28,46 +28,44 @@
         
         <section class="text-gray-600 body-font">
   </section>
-
-
-  <p class="text-4xl dark:text-white" style="margin-bottom:100px; margin-left:30px">Les 30 plus récents animaux</p>
-  <div class="container mx-auto">
+  <div class="container mx-auto flex flex-col">
     {% if pets is defined %}
-    <div class="px-5 flex flex-wrap justify-between">
+    <p class="text-4xl dark:text-white mb-4">Les 30 plus récents animaux</p>
+    <div class="flex flex-wrap justify-between">
 
     {% for pet in pets %}
-
+      <div class=" px-5  mx-auto flex flex-wrap items-center">
         <div class="max-w-xs bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 mb-8">
            <img class="rounded-t-lg" src="{{pet.image}}" alt="" />
           <div class="p-5">
-
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{pet.name}}</h5>
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{pet.name}}</h5>
+            </a>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{pet.age}} ans</p>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{pet.description}}</p>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{pet.description|slice(0, 70)}}...</p>
             <a href="/pet/{{pet.id}}" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 lire plus
                 <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
             </a>
           </div>
         </div>
+        </div>
     {% endfor %}
 
        </div>
        {% else %}
-       <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-          <a href="#" class="flex justify-center p-3">
-              <img class="rounded-t-lg" src="{{pet.image}}" alt="" />
-          </a>
-          <div class="p-5">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{pet.name}}</h5>
-            <p class="mb-3 font-normal text-1xl text-gray-700 dark:text-gray-400">{{pet.age}} ans</p>
+        <div class="bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 p-5 basis-full">
+          <div class="flex flex-col items-center pb-10 align-center">
+            <img class="mb-3 w-17 h-17 rounded-full shadow-lg" src="{{pet.image}}" alt="Bonnie image">
+            <h3 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{pet.name}}</h3>
+            <span class="text-sm text-gray-500 dark:text-gray-400">{{pet.age}} ans</span>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{pet.description}}</p>
+            <div class="flex mt-4 space-x-3 lg:mt-6">
+              <a href="/adoption/{{pet.id}}" class="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Demande d'adoption</a>
+            </div>
           </div>
         </div>
        {% endif %}
-  
-
-
-
+      </div>
 {{ include('components/footer.html.twig') }}
 {% endblock %}
