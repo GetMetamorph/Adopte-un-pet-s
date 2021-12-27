@@ -6,6 +6,6 @@ kernel:
     resource: ../src/Kernel.php
     type: annotation
 
-test:
-    path: /test #Path qu'on retrouve dans l'url
-    controller: App\Controller\TestController::index #nom du controlleur à charger avec la méthode utilisé
+index:
+    path: / #Path qu'on retrouve dans l'url
+    controller: App\Controller\HomeController::index #nom du controlleur à charger avec la méthode utilisé
