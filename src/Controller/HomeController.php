@@ -39,7 +39,7 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
             'pets' => $this->petRepos->findBy(
                 array(),        // $where 
-                array('joinedDate' => 'DESC'),    // $orderBy
+                array('joinedDate' => 'ASC'),    // $orderBy
                 30,                        // $limit
                 0                          // $offset
               )]);
