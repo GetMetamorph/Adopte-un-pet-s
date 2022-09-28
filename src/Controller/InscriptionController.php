@@ -30,7 +30,6 @@ class InscriptionController extends AbstractController
         $user->setCreditCardNumber();
         $user->setCreditCardExpirationDate();
 
-
         $plaintextPassword = ""; //Remplacer "" par la valeur récupérer dans le form d'inscription
 
         // hash the password (based on the security.yaml config for the $user class)
